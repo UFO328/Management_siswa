@@ -3,7 +3,7 @@ venv/
 *.env
 
 # Log files
-*.log
+*.logfile
 
 # Python cache
 __pycache__/
