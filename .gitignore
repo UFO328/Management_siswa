@@ -5,6 +5,7 @@ venv/
 # Log files
 logfile
 *.log
+.gitignore
 
 # Python cache
 __pycache__/
