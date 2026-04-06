@@ -3,6 +3,7 @@ venv/
 *.env
 
 # Log files
+logfile
 *.log
 
 # Python cache
