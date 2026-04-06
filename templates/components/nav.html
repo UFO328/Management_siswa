@@ -1,0 +1,29 @@
+
+<nav class="navbar navbar-light bg-white shadow-sm px-3">
+  <button class="btn btn-primary" id="menu-toggle">
+    ☰
+  </button>
+  <span class="navbar-brand mb-0 h5">My App</span>
+</nav>
+
+<div id="sidebar">
+  <div class="sidebar-header">
+    <h4>Menu</h4>
+  </div>
+  {% if request.user.is_authenticated %}
+    <ul class="list-unstyled components">
+      <li><a href="{% url 'dashboard_app:dashboard'}">Dashboard</a></li>
+      <li><a href="{% url 'dashboard_app:tambah_data' %}">Add Data</a></li>
+      <li><a href="{% url 'dashboard_app:list_data' %}">List Siswa</a></li>
+      <li><a href="{% url 'account_app:logout' %}">Logout</a></li>
+    </ul>
+  {% else %}
+    <ul>
+      <ul class="list-unstyled components">
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contac</a></li>
+    </ul>
+  {% endif %}
+</div>
+
+<div id="overlay"></div>

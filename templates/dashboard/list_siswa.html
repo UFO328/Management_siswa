@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Data Siswa{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/modal.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    
+    <!-- Header -->
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">Data Siswa</h5>
+
+      <form method="GET">
+        <div class="input-group" style="max-width: 300px;">
+          <input 
+            type="text" 
+            name="q" 
+            class="form-control" 
+            placeholder="Cari siswa..." 
+            value="{{ request.GET.q }}"
+          >
+          <button class="btn btn-primary">Search</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Table -->
+    <div class="card-body table-responsive">
+      <table class="table table-hover table-bordered align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>Nama</th>
+            <th>NIK</th>
+            <th>NIS</th>
+            <th>NISN</th>
+            <th>Tahun</th>
+            <th>Alamat</th>
+            <th>Kontak</th>
+            <th width="150">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for siswa in siswa_list %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ siswa.nama_lengkap }}</td>
+            <td>{{ siswa.nik }}</td>
+            <td>{{ siswa.nis }}</td>
+            <td>{{ siswa.nisn }}</td>
+            <td>{{ siswa.tahun_lahir }}</td>
+            <td>{{ siswa.alamat_lengkap }}</td>
+            <td>{{ siswa.kontak }}</td>
+
+            <td>
+              <div class="d-flex gap-1">
+                <button 
+                  class="btn btn-sm btn-warning btn-edit"
+                  data-id="{{ siswa.id }}"
+                  data-nama="{{ siswa.nama_lengkap }}"
+                  data-nik="{{ siswa.nik }}"
+                  data-nis="{{ siswa.nis }}"
+                  data-nisn="{{ siswa.nisn }}"
+                  data-tahun="{{ siswa.tahun_lahir }}"
+                  data-alamat="{{ siswa.alamat_lengkap }}"
+                  data-kontak="{{ siswa.kontak }}"
+                  >Edit</button>
+
+
+                <!-- DELETE BUTTON -->
+                <button 
+                  class="btn btn-sm btn-danger btn-delete"
+                  data-id="{{ siswa.id }}"
+                  data-nama="{{ siswa.nama_lengkap }}"
+                >
+                  Hapus
+                </button>
+
+              </div>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="9" class="text-center">Data tidak ditemukan</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+</div>
+{% include 'components/modalUpdate.html' %}
+{% include 'components/deleteModal.html' %}
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/modal_update.js' %}"></script>
+<script src="{% static 'js/delete_modal.js' %}"></script>
+{% endblock %}

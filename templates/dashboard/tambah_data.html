@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tambah Data{% endblock %} 
+
+{% block extra_css %} 
+<link rel="stylesheet" href="{% static 'css/tambah_data.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid py-4 py-md-5">
+  <div class="row justify-content-center align-items-center min-vh-100">
+    
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+      
+      <div class="card p-3 p-md-4">
+        <h3 class="text-center mb-4 title">Tambah Data</h3>
+        {% if messages %}
+          {% for msg in messages %}
+            <div class="alert alert-{% if msg.tags == 'success' %}success{% elif msg.tags == 'error' %}danger{% endif %}" role="alert">
+              {{ msg }}
+            </div>
+          {% endfor %}
+        {% endif %}
+        
+        <form action="{% url 'dashboard_app:tambah_data' %}" method="post">
+          {% csrf_token %}
+
+          <div class="mb-3">
+            <label class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-control" name="nama_lengkap"
+              placeholder="Masukkan nama lengkap" required>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-4">
+              <div class="mb-3">
+                <label class="form-label">NIK</label>
+                <input type="text" class="form-control" name="nik"
+                  placeholder="16 digit" required>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <div class="mb-3">
+                <label class="form-label">NIS</label>
+                <input type="text" class="form-control" name="nis"
+                  placeholder="16 digit" required>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <div class="mb-3">
+                <label class="form-label">NISN</label>
+                <input type="text" class="form-control" name="nisn"
+                  placeholder="16 digit" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Tahun Lahir</label>
+            <input type="date" class="form-control" name="tahun_lahir" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Alamat Lengkap</label>
+            <textarea class="form-control" rows="3" name="alamat_lengkap"
+              placeholder="Masukkan alamat lengkap" required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Kontak</label>
+            <input type="tel" class="form-control" name="kontak"
+              placeholder="Masukkan nomor kontak" required>
+          </div>
+
+          <div class="d-grid mt-3">
+            <button type="submit" class="btn btn-primary">
+              Simpan Data
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

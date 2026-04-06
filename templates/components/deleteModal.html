@@ -1,0 +1,18 @@
+<div id="deleteModal" class="custom-modal">
+  <div class="modal-box">
+    <h5>Konfirmasi Hapus</h5>
+    <p id="modalText"></p>
+
+    <form id="deleteForm" method="POST">
+      {% csrf_token %}
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="closeModal">
+          Batal
+        </button>
+        <button type="submit" class="btn btn-danger">
+          Hapus
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

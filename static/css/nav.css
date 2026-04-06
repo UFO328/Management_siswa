@@ -1,0 +1,65 @@
+/* Sidebar utama */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100vh;
+  background: #1a3c6e; /* ✅ Ganti dari #eef5ff ke navy */
+  color: #fff;
+  transition: all 0.3s ease;
+  z-index: 999;
+  padding-top: 20px;
+}
+
+/* Saat aktif */
+#sidebar.active {
+  left: 0;
+}
+
+/* Header */
+.sidebar-header {
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff; /* ✅ Tambahkan ini */
+}
+
+/* Menu */
+#sidebar ul {
+  padding: 0;
+  list-style: none;
+}
+
+#sidebar ul li {
+  padding: 12px 20px;
+}
+
+#sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  transition: 0.2s;
+}
+
+#sidebar ul li a:hover {
+  background: rgba(255,255,255,0.15);
+  border-radius: 6px;
+  padding-left: 10px; /* ✅ Efek geser saat hover */
+}
+
+/* Overlay background */
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 998;
+}
+
+#overlay.active {
+  display: block;
+}

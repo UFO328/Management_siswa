@@ -1,0 +1,45 @@
+/* Background biar tidak flat */
+body {
+  background-color: #eef5ff;
+}
+
+/* Card styling */
+.card {
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* Input biar nyaman di mobile */
+.form-control {
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* Button */
+.btn-primary {
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 500;
+}
+
+/* Title */
+.title {
+  font-weight: 600;
+}
+
+/* 🔥 Responsive spacing */
+@media (max-width: 576px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .card {
+    padding: 20px 15px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+}

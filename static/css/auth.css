@@ -1,0 +1,91 @@
+/* Biar full tinggi layar */
+html, body {
+  height: 100%;
+}
+.auth-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;      /* vertical center */
+  justify-content: center;  /* horizontal center */
+}
+
+/* ===== Container biar tidak terlalu lebar ===== */
+.auth-container {
+  max-width: 1000px;
+}
+
+/* ===== Gambar: batasi biar tidak jumbo ===== */
+.auth-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== Form: batasi lebar agar nyaman dibaca ===== */
+.auth-form {
+  max-width: 420px;
+  width: 100%;
+}
+
+/* ===== Input: jangan terlalu besar ===== */
+.auth-form .form-control {
+  padding: 0.6rem 0.9rem;
+  font-size: 0.95rem;
+  border-radius: 0.5rem;
+}
+
+/* ===== Button: proporsional ===== */
+.auth-form .btn {
+  padding: 0.6rem;
+  font-size: 0.95rem;
+  border-radius: 0.5rem;
+}
+
+/* ===== Spacing lebih rapat ===== */
+.auth-form .mb-4 {
+  margin-bottom: 1rem !important;
+}
+
+/* ===== Mobile tuning ===== */
+@media (max-width: 768px) {
+  .auth-section {
+    padding: 20px 10px;
+  }
+
+  .auth-image {
+    text-align: center;
+  }
+
+  .auth-image img {
+    max-width: 220px; /* kecilkan gambar di mobile */
+  }
+
+  .auth-form {
+    margin: 0 auto;
+  }
+}
+
+/* 🔵 Background biru halus (flat, bukan gradient) */
+.auth-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eef5ff;
+}
+
+/* Card */
+.auth-card {
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Input */
+.form-control {
+  border-radius: 8px;
+}
+
+/* Button */
+.btn-primary {
+  border-radius: 8px;
+  font-weight: 500;
+}
