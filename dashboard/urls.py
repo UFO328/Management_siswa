@@ -1,5 +1,5 @@
 from django.urls import path 
-from .views import DashboardView,ViewAddData,ListViewSiswa,UpdateSiswa
+from .views import DashboardView,ViewAddData,ListViewSiswa,UpdateSiswa,delete_siswa
 
 app_name = 'dashboard_app'
 
@@ -8,4 +8,5 @@ urlpatterns = [
   path('tambah_data/',ViewAddData.as_view(),name='tambah_data'),
   path('list_data/',ListViewSiswa.as_view(),name='list_data'),
   path('update_data/<int:id>/',UpdateSiswa,name='update_data'),
+  path('delete_data/<int:id>/',delete_siswa,name='delete_data'),
   ]
