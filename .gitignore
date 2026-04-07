@@ -2,10 +2,9 @@
 venv/
 *.env
 
-# Log files
-logfile
-*.log
+
 .gitignore
+logfile
 
 # Python cache
 __pycache__/
