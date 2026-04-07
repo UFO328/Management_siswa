@@ -1,62 +1,63 @@
 <div id="updateModal" class="custom-modal">
   <div class="modal-box">
-    <h5 class="mb-3">Edit Data Siswa</h5>
 
-    <form id="updateForm" method="POST">
-      {% csrf_token %}
+    <!-- HEADER -->
+    <div class="modal-header">
+      <h5 class="mb-0">Edit Data Siswa</h5>
+    </div>
 
-      <!-- Nama -->
-      <div class="mb-2">
-        <label class="form-label">Nama Lengkap</label>
-        <input type="text" name="nama_lengkap" id="editNama" class="form-control">
-      </div>
+    <!-- BODY (SCROLL ONLY) -->
+    <div class="modal-body">
+      <form id="updateForm" method="POST">
+        {% csrf_token %}
 
-      <!-- Grid NIK NIS NISN -->
-      <div class="row">
-        <div class="col-md-4 mb-2">
-          <label class="form-label">NIK</label>
-          <input type="text" name="nik" id="editNik" class="form-control">
+        <div class="mb-2">
+          <label class="form-label">Nama Lengkap</label>
+          <input type="text" name="nama_lengkap" id="editNama" class="form-control">
         </div>
 
-        <div class="col-md-4 mb-2">
-          <label class="form-label">NIS</label>
-          <input type="text" name="nis" id="editNis" class="form-control">
+        <div class="row">
+          <div class="col-md-4 mb-2">
+            <label class="form-label">NIK</label>
+            <input type="text" name="nik" id="editNik" class="form-control">
+          </div>
+          <div class="col-md-4 mb-2">
+            <label class="form-label">NIS</label>
+            <input type="text" name="nis" id="editNis" class="form-control">
+          </div>
+          <div class="col-md-4 mb-2">
+            <label class="form-label">NISN</label>
+            <input type="text" name="nisn" id="editNisn" class="form-control">
+          </div>
         </div>
 
-        <div class="col-md-4 mb-2">
-          <label class="form-label">NISN</label>
-          <input type="text" name="nisn" id="editNisn" class="form-control">
+        <div class="mb-2">
+          <label class="form-label">Tahun Lahir</label>
+          <input type="date" name="tahun_lahir" id="editTahun" class="form-control">
         </div>
-      </div>
 
-      <!-- Tahun Lahir -->
-      <div class="mb-2">
-        <label class="form-label">Tahun Lahir</label>
-        <input type="date" name="tahun_lahir" id="editTahun" class="form-control">
-      </div>
+        <div class="mb-2">
+          <label class="form-label">Alamat Lengkap</label>
+          <input type="text" name="alamat_lengkap" id="editAlamat" class="form-control">
+        </div>
 
-      <!-- Alamat -->
-      <div class="mb-2">
-        <label class="form-label">Alamat Lengkap</label>
-        <input type="text" name="alamat_lengkap" id="editAlamat" class="form-control">
-      </div>
+        <div class="mb-2">
+          <label class="form-label">Kontak</label>
+          <input type="text" name="kontak" id="editKontak" class="form-control">
+        </div>
 
-      <!-- Kontak -->
-      <div class="mb-2">
-        <label class="form-label">Kontak</label>
-        <input type="text" name="kontak" id="editKontak" class="form-control">
-      </div>
+      </form>
+    </div>
 
-      <!-- Action -->
-      <div class="modal-actions mt-3">
-        <button type="button" class="btn btn-secondary" id="closeUpdateModal">
-          Batal
-        </button>
-        <button type="submit" class="btn btn-primary">
-          Update
-        </button>
-      </div>
+    <!-- FOOTER (FIXED, TIDAK IKUT SCROLL) -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" id="closeUpdateModal">
+        Batal
+      </button>
+      <button type="submit" form="updateForm" class="btn btn-primary">
+        Update
+      </button>
+    </div>
 
-    </form>
   </div>
 </div>

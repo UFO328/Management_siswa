@@ -10,7 +10,7 @@ class ViewAddData(LoginRequiredMixin,View):
   
   def post(self,request):
     data = {
-      'nama_lengkap':request.POST.get('nama_lengkap'),
+      'nama_siswa':request.POST.get('nama_lengkap'),
       'nik':request.POST.get('nik'),
       'nis':request.POST.get('nis'),
       'nisn':request.POST.get('nisn'),

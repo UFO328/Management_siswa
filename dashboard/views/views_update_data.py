@@ -3,9 +3,11 @@ from django.shortcuts import render,redirect,get_object_or_404
 from ..services import update_services
 from django.contrib import messages 
 from django.contrib.auth.decorators import login_required 
+from django.views.decorators.http import require_POST
 
 
 @login_required
+@require_POST
 def UpdateSiswa(request,id):
   if request.method == 'POST':
     data = {
@@ -22,8 +24,16 @@ def UpdateSiswa(request,id):
     
     if result.get('status'):
       messages.success(request,f'{result.get('messages')}')
-      return redirect('dashboard_app:list_siswa')
+      return redirect('dashboard_app:list_data')
     else:
       messages.error(request,f'{result.get('messages')}')
-      return redirect('dashboard_app:list_siswa')
-  return redirect('dashboard_app:list_siswa')
+      return redirect('dashboard_app:list_data')
+  return redirect('dashboard_app:list_data')
+
+@login_required
+@require_POST
+def delete_siswa(request, id):
+    siswa_obj = get_object_or_404(Siswa, id=id)
+    siswa_obj.delete()
+    return redirect('dashboard_app:list_data')
+

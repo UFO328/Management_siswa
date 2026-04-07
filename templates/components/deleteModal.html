@@ -1,18 +1,26 @@
 <div id="deleteModal" class="custom-modal">
   <div class="modal-box">
-    <h5>Konfirmasi Hapus</h5>
-    <p id="modalText"></p>
+
+    <div class="modal-header">
+      <h5>Konfirmasi Hapus</h5>
+    </div>
+
+    <div class="modal-body">
+      <p id="modalText"></p>
+    </div>
 
     <form id="deleteForm" method="POST">
       {% csrf_token %}
-      <div class="modal-actions">
-        <button type="button" class="btn btn-secondary" id="closeModal">
-          Batal
-        </button>
-        <button type="submit" class="btn btn-danger">
-          Hapus
-        </button>
-      </div>
     </form>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" id="closeModal">
+        Batal
+      </button>
+      <button type="submit" form="deleteForm" class="btn btn-danger">
+        Hapus
+      </button>
+    </div>
+
   </div>
 </div>

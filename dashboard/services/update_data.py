@@ -4,7 +4,7 @@ from django.db import IntegrityError
 def update_services(**kwargs):
     try:
       siswa = Siswa.objects.get(id=kwargs.get('id'))
-      siswa.nama_lengkap = kwargs.get('nama_lengkap')
+      siswa.nama_siswa = kwargs.get('nama_lengkap')
       siswa.nik = kwargs.get('nik')
       siswa.nis = kwargs.get('nis') or None
       siswa.nisn = kwargs.get('nisn') or None
