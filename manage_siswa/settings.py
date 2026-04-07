@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-
+from dotenv import load_dotenv 
+import os 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -46,13 +47,13 @@ LOGIN_REDIRECT_URL = 'dashboard_app:dashboard'
 LOGOUT_REDIRECT_URL = 'account_app:login'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com' 
-EMAIL_PORT = 587 
-EMAIL_USE_TLS = True 
-EMAIL_HOST_USER = 'riskidwisyahputra298@gmail.com' 
-EMAIL_HOST_PASSWORD = 'tujxoyumawakgbjv'
-DEFAULT_FROM_EMAIL = 'riskidwisyahputra298@gmail.com'
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.getenv('EMAIL_HOST') #change with your email host 
+EMAIL_PORT = os.getenv('EMAIL_PORT')#change with your email port
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')#TLS mode change with False or True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER') 
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')#your password app in email not passwrd email
+DEFAULT_FROM_EMAIL=os.getenv('DEFAULT_FROM_EMAIL')#DEFAULT YOUR EMAIL
 
 
 MIDDLEWARE = [
@@ -91,8 +92,8 @@ DATABASES = {
 
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'managemant_siswa',
-        'USER': 'u0_a323',
+        'NAME': os.getenv('NAME_DB'),
+        'USER': os.getenv('USER'),
         'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '5432',
@@ -127,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Jakarta'
+TIME_ZONE = 'Asia/Jakarta'#change with your local datetime
 
 USE_I18N = True
 
